@@ -6,6 +6,6 @@ def call(Closure body) {
         sh "echo FINALLY"
         def logfile = currentBuild.rawBuild.getLogFile()
         sh "echo ${logfile.getAbsolutePath()}"
-        sh "echo ${currentBuild.getLogReader().readLine()}"
+        sh "echo ${currentBuild.rawBuild.getLogReader().readLine()}"
     }
 }
