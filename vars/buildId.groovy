@@ -1,4 +1,4 @@
 
 def call() {
-    (new co.elastic.Runbld()).buildId
+    return (new co.elastic.Runbld()).buildId
 }
