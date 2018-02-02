@@ -1,17 +1,17 @@
 
 // dunno if this is allowed or will work cross-node
 
-def bld = new co.elastic.Runbld()
-
 def buildId() {
-    bld.buildId
+    return (new co.elastic.Runbld()).buildId
 }
 
-def recordStart() {
+def recordStart(id) {
+    def bld = new co.elastic.Runbld(id)
     bld.call("--event", "build-start")
 }
 
-def recordEnd() {
+def recordEnd(id) {
+    def bld = new co.elastic.Runbld(id)
     def logfile = currentBuild.rawBuild.getLogFile()
     bld.call("--cwd", env.WORKSPACE,
                 "--event", "build-end",
