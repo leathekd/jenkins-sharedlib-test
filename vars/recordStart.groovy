@@ -1,5 +1,4 @@
 
-def call() {
-    def runbld = new co.elastic.Runbld(env.RUNBLD_ID)
-    runbld.call("--event", "build-start")
+def call(id) {
+    co.elastic.Runbld.call(id, "--event", "build-start")
 }
