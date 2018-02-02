@@ -1,4 +1,10 @@
 
 def call(id) {
-    co.elastic.Runbld.call(id, "--event", "build-start")
+    stage("Recording build start in runbld") {
+        steps {
+            script {
+                co.elastic.Runbld.call(id, "--event", "build-start")
+            }
+        }
+    }
 }
