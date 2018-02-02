@@ -31,7 +31,7 @@ def call(Closure body) {
     def buildId = runbld("--generateId")
     try {
         // log that the job started
-        runbld("--build-id", buildId, "--event" "build-start")
+        runbld("--build-id", buildId, "--event", "build-start")
         body()
     } finally {
         println "echo FINALLY"
