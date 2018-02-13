@@ -5,11 +5,11 @@
 def call(Closure body) {
     def buildId = co.elastic.Runbld.randomId()
     try {
-        // log that the job started
+        println InetAddress.localHost.hostName
         co.elastic.Runbld.call(buildId, "--event", "build-start")
         body()
     } finally {
-        println "echo FINALLY"
+        println InetAddress.localHost.hostName
         def logfile = currentBuild.rawBuild.getLogFile()
         co.elastic.Runbld.call(buildId,
                                "--cwd", env.WORKSPACE,
